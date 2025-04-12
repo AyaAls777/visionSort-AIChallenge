@@ -6,5 +6,6 @@ regex
 tqdm
 numpy
 Pillow
-opencv-python
+#opencv-python
+opencv-python-headless  # Use headless build to avoid libGL error in Streamlit Cloud
 git+https://github.com/openai/CLIP.git
