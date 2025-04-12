@@ -1,19 +1,21 @@
+
 #Imports
 import os
 import tempfile
 import streamlit as st
-from main import analyze_media, process_with_blip
 from PIL import Image
-import openai
+# from main import analyze_media, process_with_blip
+from main import analyze_media
+#import openai
 
 # Initialize OpenAI API
-from dotenv import load_dotenv
-load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
-openai.api_key = api_key
+# from dotenv import load_dotenv
+# load_dotenv()
+# api_key = os.getenv("OPENAI_API_KEY")
+# openai.api_key = api_key
 
 # --- Streamlit Setup ---
-st.set_page_config(layout="wide", page_title="VisionSort Pro")
+st.set_page_config(layout="wide", page_title="Vision Sort")
 st.sidebar.header("Configuration")
 
 # --- Sidebar Config ---
@@ -67,21 +69,31 @@ if uploaded_files and user_prompt:
                 with cols[idx % 4]:
                     st.image(Image.open(res["path"]), use_container_width=True)
                     st.caption(f"{res['confidence']:.1f}% | {res['timestamp']:.2f}s")
-                    if st.button("🧠 Explain Match", key=f"blip_{idx}"):
-                        with st.expander("🔍 BLIP Analysis"):
-                            st.write(f"**BLIP Description:** {process_with_blip(res['path'])}")
-                            if "gpt_suggestion" in res:
-                                st.write(f"**GPT Suggestion:** {res['gpt_suggestion']}")
+                    # if st.button("🧠 Explain Match", key=f"blip_{idx}"):
+                        # with st.expander("🔍 BLIP Analysis"):
+                        #     st.write(f"**BLIP Description:** {process_with_blip(res['path'])}")
+                        #     if "gpt_suggestion" in res:
+                        #         st.write(f"**GPT Suggestion:** {res['gpt_suggestion']}")
 
     # --- Display Low Confidence Matches Only If GPT Enabled ---
-    if results["low"] and openai.api_key:
-        st.subheader(f"❓ Low Confidence Matches ({len(results['low'])})")
-        if st.checkbox("Show low confidence results"):
-            for res in results["low"]:
-                st.image(Image.open(res["path"]), use_container_width=True)
-                st.caption(f"{res['confidence']:.1f}% | {res['timestamp']:.2f}s")
-                if "gpt_suggestion" in res:
-                    st.markdown(f"**💡 GPT Suggestion:** {res['gpt_suggestion']}")
+    # if results["low"] and openai.api_key:
+    #     st.subheader(f"❓ Low Confidence Matches ({len(results['low'])})")
+    #     if st.checkbox("Show low confidence results"):
+    #         for res in results["low"]:
+    #             st.image(Image.open(res["path"]), use_container_width=True)
+    #             st.caption(f"{res['confidence']:.1f}% | {res['timestamp']:.2f}s")
+    #             if "gpt_suggestion" in res:
+    #                 st.markdown(f"**💡 GPT Suggestion:** {res['gpt_suggestion']}")
+
+                        # --- Display Low Confidence Matches ------------------------------------------------------
+    if results["low"]:
+                st.subheader(f"❓ Low Confidence Matches ({len(results['low'])})")
+                if st.checkbox("Show low confidence results"):
+                    for res in results["low"]:
+                        st.image(Image.open(res["path"]), use_container_width=True)
+                        st.caption(f"{res['confidence']:.1f}% | {res['timestamp']:.2f}s")
+
+
 
     # --- Cleanup Temporary Files ---
     for path in temp_paths:
