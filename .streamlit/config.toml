@@ -1,0 +1,5 @@
+# Streamlit Cloud defaults to Python 3.12, which can break native modules like opencv-python.
+# Pinning Python 3.11 ensures compatibility with the local dev environment (Python 3.11.11).
+
+[global]
+pythonVersion = "3.11"
