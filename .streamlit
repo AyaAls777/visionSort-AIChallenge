@@ -1,7 +1,0 @@
-# Streamlit Cloud defaults to the latest available Python interpreter (e.g., 3.12),
-# which can cause compatibility issues with native C-extension packages like opencv-python.
-# Explicitly setting pythonVersion to 3.11 ensures ABI compatibility and stable wheel support 
-# for OpenCV and other compiled dependencies during deployment.
-
-[global]
-pythonVersion = "3.11"
