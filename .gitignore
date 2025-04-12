@@ -1,34 +1,34 @@
-# 🔁 Python cache files - generated automatically, not needed in Git
+#Python cache files - generated automatically, not needed in Git
 __pycache__/
 *.pyc
 
-# 🍏 macOS system file - useless clutter on GitHub
+#macOS system file - useless clutter on GitHub
 *.DS_Store
 
-# 🔐 Your OpenAI API key and other secrets
+#OpenAI API key
 .env
 
-# 🧠 JetBrains IDE settings (like PyCharm) - user-specific, not project code
+#JetBrains IDE settings (like PyCharm) - user-specific, not project code
 .idea/
 
-# ⚙️ VS Code settings folder - personal workspace config, not app logic
+#VS Code settings folder - personal workspace config, not app logic
 .vscode/
 
-# 🔁 Python cache
+# Python cache
 __pycache__/
 *.pyc
 
-# 🔐 Secrets
+# Secrets
 .env
 
-# 🍏 macOS clutter
+# macOS clutter
 *.DS_Store
 
-# 🧠 IDE/editor settings
+#IDE/editor settings
 .idea/
 .vscode/
 
-# 🧪 Dev test files you don’t want to push
+#Dev test files you i want to push
 test_video.MOV
 *.ipynb  
 frames/
