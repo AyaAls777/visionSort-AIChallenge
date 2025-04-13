@@ -81,16 +81,10 @@ The following features were previously implemented but later removed  (archived 
 - Deployment issues on Streamlit Cloud due to Python versioning, OpenCV, and Torch compatibility, had to switch to hugging face for deployment.
 - Balancing scope under tight time pressure.
 - First time independently building an AI project — and seriously working with Python.
-- Initially aimed to integrate CLIP (semantic search), GPT-4 (prompt refinement), and BLIP (fallback captioning) — but the stack proved too complex for the challenge timeline.
-- Learned an important lesson in **scope control** under tight deadlines.
 - Faced performance issues when processing large batches of images and videos, which taught me the need to write code that handles batch operations efficiently.
 - Experimented with BLIP as a fallback model:
   - Helped add context, but often lacked precision.
   - Highlighted the need for smarter fallback triggers and sparked interest in future models like PaLI or GIT.
-- Streamlit-specific challenges:
-  - Managing multiple file uploads and temp files  
-  - Keeping UI responsive with real-time feedback (match scores, timestamps, toggles)
-- Key takeaway: **Build a stable core first**, then layer in advanced features.
 - Although GPT-4 and BLIP weren’t fully integrated in the final version, I preserved and documented their experiments for future improvements.
 
 
