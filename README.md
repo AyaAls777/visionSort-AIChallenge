@@ -62,7 +62,8 @@ The app uses OpenAI's CLIP model to semantically compare your prompt to the visu
 
 ## Archived & Upcoming Features
 
-This version focuses on a clean, working CLIP-based prototype. 
+
+This version focuses on a clean, working CLIP-based prototype to simplify the final submission,
 
 The following features were previously implemented but later removed  (archived in _main.py_archive_old_versions.py and _app.py_archive_old_versions.py)
   to improve performance and simplify the user experience — but are preserved for future updates:
