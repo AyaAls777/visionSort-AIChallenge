@@ -1,4 +1,3 @@
-
 #Imports
 import os
 import tempfile
@@ -7,6 +6,8 @@ from PIL import Image
 # from main import analyze_media, process_with_blip
 from main import analyze_media
 #import openai
+import io
+import zipfile
 
 # Initialize OpenAI API
 # from dotenv import load_dotenv
@@ -63,7 +64,8 @@ if uploaded_files and user_prompt:
     # --- Display Borderline Matches ---
     if results["borderline"]:
         st.subheader(f"⚠️ Potential Matches ({len(results['borderline'])})")
-        if st.checkbox("Show borderline results", True):
+        #if st.checkbox("Show borderline results", True):
+        if st.checkbox("Show borderline results", True, key="show_borderline"):
             cols = st.columns(4)
             for idx, res in enumerate(results["borderline"]):
                 with cols[idx % 4]:
@@ -85,17 +87,46 @@ if uploaded_files and user_prompt:
     #             if "gpt_suggestion" in res:
     #                 st.markdown(f"**💡 GPT Suggestion:** {res['gpt_suggestion']}")
 
-                        # --- Display Low Confidence Matches ------------------------------------------------------
+    # --- Display Low Confidence Matches ------------------------------------------------------
     if results["low"]:
                 st.subheader(f"❓ Low Confidence Matches ({len(results['low'])})")
-                if st.checkbox("Show low confidence results"):
+               # if st.checkbox("Show low confidence results"):
+                if st.checkbox("Show low confidence results", key="show_low"):
                     for res in results["low"]:
                         st.image(Image.open(res["path"]), use_container_width=True)
                         st.caption(f"{res['confidence']:.1f}% | {res['timestamp']:.2f}s")
 
+    # --- Prepare Downloadable Results ---
+    download_ready = []
 
+    if results["high"]:
+        download_ready += results["high"]
 
-    # --- Cleanup Temporary Files ---
-    for path in temp_paths:
-        if os.path.exists(path):
-            os.unlink(path)
+    if results["borderline"] and st.session_state.get("show_borderline", True):
+        download_ready += results["borderline"]
+
+    if results["low"] and st.session_state.get("show_low", False):
+        download_ready += results["low"]
+
+    if download_ready:
+        zip_buffer = io.BytesIO()
+        with zipfile.ZipFile(zip_buffer, "w") as zipf:
+            for res in download_ready:
+                try:
+                    filename = os.path.basename(res["path"])
+                    zipf.write(res["path"], arcname=filename)
+                except Exception:
+                    continue
+        zip_buffer.seek(0)
+
+        st.download_button(
+            label="⬇️ Download Displayed Images",
+            data=zip_buffer,
+            file_name="visionSort_results.zip",
+            mime="application/zip"
+        )
+
+        # --- Cleanup Temporary Files ---
+        for path in temp_paths:
+            if os.path.exists(path):
+                os.unlink(path) 
