@@ -1,5 +1,5 @@
 # VisionSort  
-*AI-powered visual search tool for finding key moments in large batches of images or video frames using natural prompts.*
+*AI-powered tool that helps users upload large batches of images or video frames and find relevant content using natural language search prompts.*
 
 ---
 
