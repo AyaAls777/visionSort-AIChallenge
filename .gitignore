@@ -1,19 +1,3 @@
-#Python cache files - generated automatically, not needed in Git
-__pycache__/
-*.pyc
-
-#macOS system file - useless clutter on GitHub
-*.DS_Store
-
-#OpenAI API key
-.env
-
-#JetBrains IDE settings (like PyCharm) - user-specific, not project code
-.idea/
-
-#VS Code settings folder - personal workspace config, not app logic
-.vscode/
-
 # Python cache
 __pycache__/
 *.pyc
@@ -24,13 +8,13 @@ __pycache__/
 # macOS clutter
 *.DS_Store
 
-#IDE/editor settings
+# IDE/editor settings
 .idea/
 .vscode/
 
-#Dev test files you i want to push
+# Dev/test files
 test_video.MOV
-*.ipynb  
+*.ipynb
 frames/
 *.jpg
 *.jpeg
