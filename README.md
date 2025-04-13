@@ -41,17 +41,19 @@ The app uses OpenAI's CLIP model to semantically compare your prompt to the visu
 
 ## Key Features
 
-- Upload multiple **images or videos**
-- Auto-extract frames from video (1 frame/sec)
-- Search using **natural language prompts**
-- Semantic similarity matching using **CLIP embeddings + cosine similarity**
-- Results sorted into:
-  - 🎯 **Confident Matches**
-  - ⚠️ **Potential Matches** (borderline)
-  - ❓ **Low Confidence Matches**
-- Interactive **Configuration Panel**:
-  - Adjust confidence threshold and borderline minimum
-- Timestamp support for video frames
+- Upload multiple images or videos  
+- Auto-extract frames from video (1 frame/sec)  
+- Search using natural language prompts  
+- Semantic similarity matching using CLIP embeddings + cosine similarity  
+- Results sorted into:  
+  - 🎯 Confident Matches  
+  - ⚠️ Potential Matches (borderline)  
+  - ❓ Low Confidence Matches  
+- Interactive Configuration Panel:  
+  - Adjust confidence threshold and borderline minimum  
+  - Toggle display of borderline and low-confidence results  
+- Timestamp support for video frames  
+- Download Displayed Results as `.zip` based on current filter settings  
 - Temp file cleanup on each run
 
 
@@ -65,7 +67,6 @@ This version focuses on a clean, working CLIP-based prototype.
 The following features were previously implemented but later removed  (archived in _main.py_archive_old_versions.py and _app.py_archive_old_versions.py)
   to improve performance and simplify the user experience — but are preserved for future updates:
 
-- Option to **download matched images directly from the app** — essential for usability *(VITAL)*
 - BLIP captioning for fallback logic  
 - GPT-4 integration for prompt refinement when user input was vague or misspelled  
 - User-controlled frame sampling rate (choose how many frames to extract from videos)  
