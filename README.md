@@ -67,7 +67,6 @@ This version focuses on a clean, working CLIP-based prototype.
 The following features were previously implemented but later removed  (archived in _main.py_archive_old_versions.py and _app.py_archive_old_versions.py)
   to improve performance and simplify the user experience — but are preserved for future updates:
 
-- BLIP captioning for fallback logic  
 - GPT-4 integration for prompt refinement when user input was vague or misspelled  
 - User-controlled frame sampling rate (choose how many frames to extract from videos)  
 - Optional fallback triggers — user could decide when to use BLIP or GPT help  
@@ -79,6 +78,7 @@ The following features were previously implemented but later removed  (archived 
 
 ## Challenges Faced
 
+-Deployment issues on Streamlit Cloud due to Python versioning, OpenCV, and Torch compatibility, had to switch to hugging face for deployment.
 - Balancing scope under tight time pressure.
 - First time independently building an AI project — and seriously working with Python.
 - Initially aimed to integrate CLIP (semantic search), GPT-4 (prompt refinement), and BLIP (fallback captioning) — but the stack proved too complex for the challenge timeline.
