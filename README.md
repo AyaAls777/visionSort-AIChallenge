@@ -1,6 +1,8 @@
 # VisionSort  
 *AI-powered tool that helps users upload large batches of images or video frames and find relevant content using natural language search prompts.*
 
+- 🎥 [Watch Demo Video](https://drive.google.com/file/d/1XRiLok01PiDqcpkFKgIyPIw2OtLeQnh_/view?usp=sharing)
+- 🖼️ [Slides and Sample Media Used in Demo](https://drive.google.com/drive/folders/1_xAFnsvhvl42NLuRWKjeJ2hrksEiIHyy?usp=sharing)
 ---
 
 ## Concept Summary
